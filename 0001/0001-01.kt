@@ -7,6 +7,7 @@ class Solution {
             if (m.getOrDefault(nums[i], -1) >= 0) {
                 res.add(m.getOrDefault(nums[i], -1))
                 res.add(i)
+                break
             }
             m.put(target - nums[i], i)
         }
