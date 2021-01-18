@@ -1,14 +1,18 @@
 class Solution {
     fun longestCommonPrefix(strs: Array<String>): String {
-        if (strs.size == 0) return ""
-        if (strs.size == 1) return strs[0]
+        val size = strs.size
+        if (size == 0) return ""
+        if (size == 1) return strs[0]
         
+        if (strs[0] == "") return ""
         var prefix: String = strs[0]
         
-        for (i in 1..strs.size-1) {
+        for (i in 1..size-1) {
+            if (strs[i] == "") return ""
+            
             while (strs[i].indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length - 1)
-                if (prefix.isEmpty()) return ""
+                if (prefix == "") return ""
             }
         }
         return prefix
